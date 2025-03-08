@@ -1,14 +1,4 @@
 
-variable "region" {
-  type        = string
-  description = "region"
-}
-
-variable "account" {
-  type        = string
-  description = "account"
-}
-
 variable "account_type" {
   type        = string
   description = "account_type"
@@ -24,32 +14,28 @@ variable "name" {
   description = "Function name"
 }
 
-## EC2 instances
-// Shared
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID"
+}
+
+variable "subnet_id" {
+  type        = string
+  description = "Subnet ID"
+}
+
+variable "instance_type" {
+  type        = string
+  description = "EC2 instance type"
+}
+
+variable "ec2_ami" {
+  type        = string
+  description = "EC2 AMI"
+}
+
 variable "ssh_key_pair" {
   type        = string
   description = "EC2 key pair"
-}
-
-// Wireguard VPN
-variable "wireguard_instance_type" {
-  type        = string
-  description = "EC2 instance type"
-}
-
-variable "wireguard_ami" {
-  type        = string
-  description = "EC2 AMI"
-}
-
-// Windows SMB File Server
-variable "windows_smb_instance_type" {
-  type        = string
-  description = "EC2 instance type"
-}
-
-variable "windows_smb_ami" {
-  type        = string
-  description = "EC2 AMI"
 }
 
