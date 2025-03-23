@@ -9,7 +9,7 @@ module "vpc" {
   stage     = var.env
   name      = var.name
 
-  ipv4_primary_cidr_block = "10.0.0.0/16"
+  ipv4_primary_cidr_block = var.ipv4_primary_cidr_block   // changed from "10.0.0.0/16"
   assign_generated_ipv6_cidr_block = false
 }
 
@@ -23,7 +23,7 @@ module "dynamic_subnets" {
   namespace          = var.account_type
   stage              = var.env
   name               = var.name
-  availability_zones = ["eu-west-2a","eu-west-2b","eu-west-2c"]
+  availability_zones = var.availability_zones  // changed from ["eu-west-2a","eu-west-2b","eu-west-2c"]
   nat_gateway_enabled  = false
   vpc_id             = module.vpc.vpc_id
   igw_id             = [module.vpc.igw_id]
